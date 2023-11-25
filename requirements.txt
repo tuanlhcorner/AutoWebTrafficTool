@@ -2,4 +2,5 @@ PyQt5==5.15.6
 selenium==4.0.0a1
 webdriver-manager==3.7.1
 urllib3==1.26.11
+pyqt5-tools
 

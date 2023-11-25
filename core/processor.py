@@ -59,7 +59,6 @@ class Core(object):
 	
 	def data_info(self):
 		info = {}
-		print(">>> Link number ", len(self.urls))
 		if self.urls:
 			length = len(self.urls)
 			domains = [urllib.parse.urlparse(url).netloc for url in self.urls]
@@ -92,6 +91,17 @@ class Core(object):
 		result = [line.strip() for line in data]
 		self.urls = result
 
+
+	def test_release(self, urls = None):
+		length = len(urls)
+		for idx, url in enumerate(urls):
+			time.sleep(1)
+			yield {
+				"success": True,
+				"url": url, 
+				"step":int((idx+1)*100/length),
+				"message": "testing"
+			}
 
 	def release(self, urls = None):
 		# checking web browser is available
